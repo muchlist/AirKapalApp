@@ -1,11 +1,10 @@
 package com.muchlis.simak.services
 
-import com.muchlis.simak.datas.input.LoginDataInput
+import com.muchlis.simak.datas.input.LoginDataRequest
 import com.muchlis.simak.datas.output.LoginDataResponse
 import com.muchlis.simak.utils.App
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -26,7 +25,7 @@ interface ApiService {
 
     @POST("/login")
     fun postLogin(
-        @Body args: LoginDataInput,
+        @Body args: LoginDataRequest,
         @Header("Content-Type") contentType: String = "application/json"
     ): Call<LoginDataResponse>
 

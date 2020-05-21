@@ -14,10 +14,10 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:contentDescription="@string/pilih_server"
+            android:contentDescription="@string/desc"
             android:elevation="5dp"
             app:srcCompat="@drawable/ic_baseline_info_24px" />
 
@@ -53,7 +53,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_medium"
                 android:fontFamily="sans-serif-light"
-                android:text="@string/laporan_kerusakan_kontainer_daring"
+                android:text="@string/sistem_informasi_monitoring_air_kapal"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="@dimen/spacing_middle"
-                android:text="@string/log_in"
+                android:text="@string/login"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@android:color/white"
                 android:textStyle="bold" />
@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="-4dp"
                     android:layout_marginRight="-4dp"
-                    android:hint="@string/username"
+                    android:hint="@string/username_nipp"
                     android:inputType="text"
                     android:maxLength="50"
                     android:maxLines="1"
@@ -157,7 +157,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
-                    android:elevation="6dp"
+                    android:elevation="3dp"
                     android:focusable="true"
                     android:textStyle="bold"
                     android:tint="@color/cyan_800"

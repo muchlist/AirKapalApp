@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.muchlis.simak.datas.input.LoginDataInput
+import com.muchlis.simak.datas.input.LoginDataRequest
 import com.muchlis.simak.datas.output.LoginDataResponse
 import com.muchlis.simak.services.ApiService
 import com.muchlis.simak.utils.App
@@ -36,7 +36,7 @@ class LoginViewModel(
     }
 
 
-    fun postLogin(loginInput: LoginDataInput) {
+    fun postLogin(loginInput: LoginDataRequest) {
         _isLoading.value = true
         _isError.value = ""
         apiService.postLogin(
@@ -66,7 +66,7 @@ class LoginViewModel(
             override fun onFailure(call: Call<LoginDataResponse>, t: Throwable) {
                 _isLoginSuccess.value = false
                 _isLoading.value = false
-                _isError.value = "Gagal terhubung ke server"
+                _isError.value = t.message
             }
         })
     }
@@ -75,14 +75,11 @@ class LoginViewModel(
         val pref = App.prefs
         pref.authTokenSave = "Bearer "+ data.accessToken
         pref.nameSave = data.name
-        pref.userBranchOneSave = data.branch[0]
-        if (data.branch.count() > 1) {
-            pref.userBranchTwoSave = data.branch[1]
-        }
+        pref.userBranchSave = data.branch
         pref.companySave = data.company
         pref.isAdmin = data.isAdmin
         pref.isTally = data.isTally
-        pref.isForeman = data.isForeman
+        pref.isManager = data.isManager
         pref.isAgent = data.isAgent
     }
 
