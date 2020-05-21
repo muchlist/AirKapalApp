@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="cyan_800_overlay">#E600838F</color>
+    <color name="grey_10">#e6e6e6</color>
+    <color name="cyan_800">#00838F</color>
+    <color name="black">#2E2E2E</color>
+    <color name="white">#FFF</color>
+    <color name="white_transfarent">#A3FFFFFF</color>
+    <color name="transfarent">#00FFFFFF</color>
+    <color name="grey">#535353</color>
+
+
+    <color name="chip_good">#4666BB6A</color>
+    <color name="chip_bad">#70EC407A</color>
+    <color name="chip_warn">#FF7043</color>
+</resources>
