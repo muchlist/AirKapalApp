@@ -1,5 +1,6 @@
 package com.muchlis.simak.views
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -8,6 +9,7 @@ import com.muchlis.simak.R
 import com.muchlis.simak.adapter.HomeRecyclerAdapter
 import com.muchlis.simak.databinding.ActivityHomeBinding
 import com.muchlis.simak.datas.HomeItemData
+import com.muchlis.simak.utils.App
 
 
 class HomeActivity : AppCompatActivity() {
@@ -27,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setToolBar() {
-        bd.toolbar.title = "Muchlis"
+        bd.toolbar.title = App.prefs.userBranchSave
         setSupportActionBar(bd.toolbar)
     }
 
@@ -37,6 +39,7 @@ class HomeActivity : AppCompatActivity() {
             clear()
             add(
                 HomeItemData(
+                    index = 0,
                     title = "Pengisian Air Kapal",
                     subtitle = "Submenu untuk pengisian air kapal",
                     picture = R.drawable.icon_air_kapal
@@ -44,6 +47,7 @@ class HomeActivity : AppCompatActivity() {
             )
             add(
                 HomeItemData(
+                    index = 1,
                     title = "Konfirmasi",
                     subtitle = "Kegiatan air kapal yang memerlukan konfirmasi manager",
                     picture = R.drawable.icon_konfirmasi
@@ -51,6 +55,7 @@ class HomeActivity : AppCompatActivity() {
             )
             add(
                 HomeItemData(
+                    index = 2,
                     title = "Statistik",
                     subtitle = "Dasbor untuk keperluan monitoring data",
                     picture = R.drawable.icon_report
@@ -63,9 +68,17 @@ class HomeActivity : AppCompatActivity() {
         recyclerAdapter = HomeRecyclerAdapter(this, items) {
 
             //ONCLICK
+            when (it.index) {
+                0 -> changeToListWaterActivity()
+            }
 
         }
         bd.recyclerView.adapter = recyclerAdapter
         bd.recyclerView.setHasFixedSize(true)
+    }
+
+    private fun changeToListWaterActivity() {
+        val intent = Intent(this, ListWaterActivity::class.java)
+        startActivity(intent)
     }
 }

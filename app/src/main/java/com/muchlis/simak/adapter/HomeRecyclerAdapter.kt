@@ -40,8 +40,7 @@ class HomeRecyclerAdapter(
                 tv_subtitle_item_home.text = items.subtitle
                 iv_circle_item_home.setImageResource(items.picture)
 
-                //onClick
-                //itemView.setOnClickListener { itemClick(items) }
+                itemView.setOnClickListener { itemClick(items) }
             }
         }
     }
