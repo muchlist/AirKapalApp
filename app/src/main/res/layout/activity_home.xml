@@ -8,6 +8,7 @@
         android:background="#16535353"
         android:fitsSystemWindows="true">
 
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"

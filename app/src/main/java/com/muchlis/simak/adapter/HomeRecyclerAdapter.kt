@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.item_home.view.*
 
 class HomeRecyclerAdapter(
     private val context: Context?,
-    private val itemPrint: List<HomeItemData>,
+    private val itemHome: List<HomeItemData>,
     private val itemClick: (HomeItemData) -> Unit
 ) : RecyclerView.Adapter<HomeRecyclerAdapter.ViewHolder>() {
 
@@ -24,10 +24,10 @@ class HomeRecyclerAdapter(
         )
     }
 
-    override fun getItemCount(): Int = itemPrint.size
+    override fun getItemCount(): Int = itemHome.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(itemPrint[position])
+        holder.bindItem(itemHome[position])
     }
 
 

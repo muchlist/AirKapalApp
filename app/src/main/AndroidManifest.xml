@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".views.ListWaterActivity"></activity>
+        <activity
+            android:name=".views.WatersActivity"
+            android:theme="@style/MaterialTheme" />
         <activity android:name=".views.HomeActivity" />
         <activity
             android:name=".views.LoginActivity"

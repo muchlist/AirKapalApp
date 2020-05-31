@@ -78,7 +78,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun changeToListWaterActivity() {
-        val intent = Intent(this, ListWaterActivity::class.java)
+        val intent = Intent(this, WatersActivity::class.java)
         startActivity(intent)
     }
 }

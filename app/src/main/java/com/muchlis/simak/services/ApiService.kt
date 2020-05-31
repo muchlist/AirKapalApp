@@ -2,6 +2,7 @@ package com.muchlis.simak.services
 
 import com.muchlis.simak.datas.input.LoginDataRequest
 import com.muchlis.simak.datas.output.LoginDataResponse
+import com.muchlis.simak.datas.output.WaterListResponse
 import com.muchlis.simak.utils.App
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -29,12 +30,25 @@ interface ApiService {
         @Header("Content-Type") contentType: String = "application/json"
     ): Call<LoginDataResponse>
 
+    /*/api/waters?branch=BAGENDANG&agent=&page=1&search=MERA*/
+    @GET("/api/waters")
+    fun getWaters(
+        @Header("Authorization") token: String,
+        @Query("branch") branch: String,
+        @Query("agent") agent: String = "",
+        @Query("search") search: String = "",
+        @Query("page") page: Int = 1
+    ): Call<WaterListResponse>
+
+
     /*//USER
     @POST("/login")
     fun postLogin(
         @Body args: LoginDataInput,
         @Header("Content-Type") contentType: String = "application/json"
     ): Call<LoginDataResponse>
+
+
 
     @GET("/profile")
     fun getProfile(
