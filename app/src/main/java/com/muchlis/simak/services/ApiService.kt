@@ -1,7 +1,11 @@
 package com.muchlis.simak.services
 
+import com.muchlis.simak.datas.input.InsertVesselDataInput
 import com.muchlis.simak.datas.input.LoginDataRequest
+import com.muchlis.simak.datas.input.WaterPostRequest
 import com.muchlis.simak.datas.output.LoginDataResponse
+import com.muchlis.simak.datas.output.MessageResponse
+import com.muchlis.simak.datas.output.VesselListDataResponse
 import com.muchlis.simak.datas.output.WaterListResponse
 import com.muchlis.simak.utils.App
 import com.squareup.moshi.Moshi
@@ -39,6 +43,25 @@ interface ApiService {
         @Query("search") search: String = "",
         @Query("page") page: Int = 1
     ): Call<WaterListResponse>
+
+    @POST("/api/waters")
+    fun postContainer(
+        @Header("Authorization") token: String,
+        @Body args: WaterPostRequest
+    ): Call<MessageResponse>
+
+
+    @GET("/vessels")
+    fun getVessels(
+        @Header("Authorization") token: String,
+        @Query("search") search: String = ""
+    ): Call<VesselListDataResponse>
+
+    @POST("/vessels")
+    fun postVessel(
+        @Header("Authorization") token: String,
+        @Body args: InsertVesselDataInput
+    ): Call<MessageResponse>
 
 
     /*//USER

@@ -16,6 +16,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".views.WatersAddActivity"
+            android:theme="@style/MaterialTheme" />
+        <activity
             android:name=".views.WatersActivity"
             android:theme="@style/MaterialTheme" />
         <activity android:name=".views.HomeActivity" />

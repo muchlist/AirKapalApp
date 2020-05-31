@@ -1,5 +1,6 @@
 package com.muchlis.simak.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -12,6 +13,7 @@ import com.muchlis.simak.adapter.WaterListRecyclerAdapter
 import com.muchlis.simak.databinding.ActivityListWaterBinding
 import com.muchlis.simak.datas.output.WaterResponse
 import com.muchlis.simak.services.Api
+import com.muchlis.simak.utils.Singleton
 import com.muchlis.simak.utils.invisible
 import com.muchlis.simak.utils.visible
 import com.muchlis.simak.viewmodels.WatersViewModel
@@ -52,6 +54,10 @@ class WatersActivity : AppCompatActivity() {
         bd.refreshWaters.setOnRefreshListener {
             viewModel.reqListWaterItems()
             bd.refreshWaters.isRefreshing = false
+        }
+
+        bd.fabAddWaters.setOnClickListener {
+            changeToAddWaterActivity()
         }
 
     }
@@ -105,6 +111,19 @@ class WatersActivity : AppCompatActivity() {
     private fun runLayoutAnimation(recyclerView: RecyclerView?) {
         recyclerView?.scheduleLayoutAnimation()
         recyclerView?.invalidate()
+    }
+
+    private fun changeToAddWaterActivity() {
+        val intent = Intent(this, WatersAddActivity::class.java)
+        startActivity(intent)
+    }
+
+    override fun onResume() {
+        if (Singleton.isWatersNeedUpdate){
+            viewModel.reqListWaterItems()
+        }
+        Singleton.isWatersNeedUpdate = false
+        super.onResume()
     }
 
     override fun onDestroy() {
